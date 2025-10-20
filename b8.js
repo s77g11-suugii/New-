@@ -5,14 +5,30 @@
 //});
 //console.log(counts);
 
+//for
+//const numbers = [1, 2, 3, 2, 4, 3, 5];
+//const counts = {};
+//for (let i = 0; i < numbers.length; i++) {
+//  let num = numbers[i];
+//counts[num] = (counts[num] || 0) + 1;
+//}
+//for (let num in counts) {
+//  if (counts[num] === 2) {
+//    console.log(num + ":" + counts[num]);
+//  }
+//}
+
+//while 
 const numbers = [1, 2, 3, 2, 4, 3, 5];
 const counts = {};
-for (let i = 0; i < numbers.length; i++) {
+let i = 0;
+while (i < numbers.length) {
   let num = numbers[i];
   counts[num] = (counts[num] || 0) + 1;
+  i++;
 }
 for (let num in counts) {
   if (counts[num] === 2) {
-    console.log(num + ": " + counts[num]);
+    console.log(num + ":" + counts[num]);
   }
 }
