@@ -164,12 +164,25 @@
 //    console.log(aldaa); 
 //  });
 
-const fs = require("fs");
-
+//fs
+//onst fs = require("fs");
 //fs.writeFileSync("test.txt", "Сайн байна уу, энэ бол Node.js!");
-const data = fs.readFileSync("test.txt", "utf8");
+//const data = fs.readFileSync("test.txt", "utf8");
 //fs.unlinkSync("test.txt");
 
 //console.log("Файл амжилттай бичигдлээ!");
-console.log(data);
+//console.log(data);
 //console.log("Файл устгагдлаа!");
+
+//const readline = require("readline");
+
+//const rl = readline.createInterface({
+//  input: process.stdin,
+//  output: process.stdout
+//});
+
+//rl.question("Таны нэр юу вэ? ", (name) => {
+//  console.log("Сайн уу, " + name + "!");
+//  rl.close();
+//});
+
