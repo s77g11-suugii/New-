@@ -5,31 +5,46 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+let attempt = 0;
+const maxAttempt = 3;
+
 function askChoice() {
   const options = ["haich", "chuluu", "dawuu"];
   const computer = options[Math.floor(Math.random() * 3)];
 
-  rl.question("ali negiin songono uu haich, chuluu, dawuu: ", (input) => {
-    const userChoice = input.toLowerCase().trim();
+  if (attempt >= maxAttempt) {
+    console.log("hojigdloo");
+    rl.close();
+    return;
+  }
 
-    console.log("minii songolt:", userChoice);
-    console.log("computeriin songolt:", computer);
+  rl.question("Аль нэгийг сонго: haich, chuluu, dawuu → ", (input) => {
+    const userChoice = input.toLowerCase().trim();
 
     if (!options.includes(userChoice)) {
       console.log("zow bichne uu");
-      return askChoice();
-    } else if (userChoice === computer) {
+      askChoice();
+      return;
+    }
+
+    attempt++;
+
+    console.log("user songolt: ", userChoice);
+    console.log("computer songolt: ", computer);
+
+    if (userChoice === computer) {
       console.log("tentsew");
     } else if (
       (userChoice === "chuluu" && computer === "haich") ||
       (userChoice === "haich" && computer === "dawuu") ||
       (userChoice === "dawuu" && computer === "chuluu")
     ) {
-      console.log("user ylsan");
+      console.log("user ylaa");
     } else {
-      console.log("computer ylsan");
+      console.log("computer ylaa");
     }
-    rl.close();
+    console.log(`uldsen bolomj: ${maxAttempt - attempt}\n`);
+    askChoice();
   });
 }
 askChoice();
