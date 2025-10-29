@@ -186,6 +186,17 @@
 //  rl.close();
 //});
 
+//const readline = require("readline");
+//const rl = readline.createInterface({
+//  input: process.stdin,
+//  output: process.stdout
+//});
+//rl.question("Нас оруулна уу: ", (input) => {
+//  const nas = parseInt(input); // string → тоо
+//  console.log("Таны нас 5 жилийн дараа:", nas + 5);
+//  rl.close();
+//});
+
 const readline = require("readline");
 
 const rl = readline.createInterface({
@@ -193,8 +204,55 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-rl.question("Нас оруулна уу: ", (input) => {
-  const nas = parseInt(input); // string → тоо
-  console.log("Таны нас 5 жилийн дараа:", nas + 5);
-  rl.close();
-});
+let attempt = 0;
+const maxAttempt = 3;
+
+function askChoice() {
+
+  const options = ["haich", "chuluu", "dawuu"];
+
+const h1 = options[0]; 
+const h2 = options[1]; 
+const h3 = options[2]; 
+
+  const computer = options[Math.floor(Math.random() * 3)];
+
+  if (attempt >= maxAttempt) {
+    console.log("hojigdloo");
+    rl.close();
+    return;
+  }
+
+  rl.question("ali negiin songo: 1-haich, 2-chuluu, 3-dawuu → ", (input) => {
+
+    const number = parseInt(input);
+
+    const userChoice = options[number - 1];
+
+    if (number < 1 || number > 3) {
+      console.log("zow bichne uu");
+      askChoice();
+      return;
+    }
+
+    attempt++;
+
+    console.log("user songolt: ", userChoice);
+    console.log("computer songolt: ", computer);
+
+    if (userChoice === computer) {
+      console.log("tentsew");
+    } else if (
+      (userChoice === h2 && computer === h1) ||
+      (userChoice === h1 && computer === h3) ||
+      (userChoice === h3 && computer === h2)
+    ) {
+      console.log("user ylaa");
+    } else {
+      console.log("computer ylaa");
+    }
+    console.log(`uldsen bolomj: ${maxAttempt - attempt}\n`);
+    askChoice();
+  });
+}
+askChoice();  

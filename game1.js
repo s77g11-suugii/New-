@@ -62,10 +62,11 @@ const maxAttempt = 3;
 function askChoice() {
 
   const options = ["haich", "chuluu", "dawuu"];
+  const h1 = options[0];
+  const h2 = options[1];
+  const h3 = options[2];
 
-const h1 = options[0]; 
-const h2 = options[1]; 
-const h3 = options[2]; 
+  //const options = ["0", "1", "2"];
 
   const computer = options[Math.floor(Math.random() * 3)];
 
@@ -73,7 +74,7 @@ const h3 = options[2];
     console.log("hojigdloo");
     rl.close();
     return;
-  }
+  } 
 
   rl.question("ali negiin songo: 1-haich, 2-chuluu, 3-dawuu → ", (input) => {
 
@@ -95,9 +96,11 @@ const h3 = options[2];
     if (userChoice === computer) {
       console.log("tentsew");
     } else if (
-      (userChoice === h2 && computer === h1) ||
-      (userChoice === h1 && computer === h3) ||
-      (userChoice === h3 && computer === h2)
+      //      (userChoice === "1" && computer === "0") ||
+      //      (userChoice === "0" && computer === "2") ||
+      //      (userChoice === "2" && computer === "1")
+      (userChoice > computer) ||
+      (userChoice < computer)
     ) {
       console.log("user ylaa");
     } else {
