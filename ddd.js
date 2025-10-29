@@ -186,3 +186,15 @@
 //  rl.close();
 //});
 
+const readline = require("readline");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question("Нас оруулна уу: ", (input) => {
+  const nas = parseInt(input); // string → тоо
+  console.log("Таны нас 5 жилийн дараа:", nas + 5);
+  rl.close();
+});
