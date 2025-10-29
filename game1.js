@@ -61,12 +61,14 @@ const maxAttempt = 3;
 
 function askChoice() {
 
-  const options = ["haich", "chuluu", "dawuu"];
-  const h1 = options[0];
-  const h2 = options[1];
-  const h3 = options[2];
+  //const options = ["chuluu", "haich", "dawuu"];
+  //const h1 = options[0];
+  //const h2 = options[1];
+  //const h3 = options[2];
 
-  //const options = ["0", "1", "2"];
+  //const options = {1, 2, 3};
+
+const options = {1: "chuluu", 2: "haich", 3: "dawuu"};
 
   const computer = options[Math.floor(Math.random() * 3)];
 
@@ -76,7 +78,7 @@ function askChoice() {
     return;
   } 
 
-  rl.question("ali negiin songo: 1-haich, 2-chuluu, 3-dawuu → ", (input) => {
+  rl.question("ali negiin songo: 1-chuluu, 2-haich, 3-dawuu → ", (input) => {
 
     const number = parseInt(input);
 
@@ -93,14 +95,16 @@ function askChoice() {
     console.log("user songolt: ", userChoice);
     console.log("computer songolt: ", computer);
 
+//console.log("User songolt:", options[userChoiceNumber]);
+//console.log("Computer songolt:", options[computerNumber]);
+
     if (userChoice === computer) {
       console.log("tentsew");
     } else if (
       //      (userChoice === "1" && computer === "0") ||
       //      (userChoice === "0" && computer === "2") ||
       //      (userChoice === "2" && computer === "1")
-      (userChoice > computer) ||
-      (userChoice < computer)
+      (userChoice > computer)
     ) {
       console.log("user ylaa");
     } else {
