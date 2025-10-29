@@ -66,14 +66,14 @@ function askChoice() {
   //const h2 = options[1];
   //const h3 = options[2];
 
-  //const options = {1, 2, 3};
+  const options = [0, 1, 2];
 
-const options = {1: "chuluu", 2: "haich", 3: "dawuu"};
+//const options = {1: "chuluu", 2: "haich", 3: "dawuu"};
 
   const computer = options[Math.floor(Math.random() * 3)];
 
   if (attempt >= maxAttempt) {
-    console.log("hojigdloo");
+    console.log("hojigdloo"); 
     rl.close();
     return;
   } 
@@ -92,8 +92,14 @@ const options = {1: "chuluu", 2: "haich", 3: "dawuu"};
 
     attempt++;
 
-    console.log("user songolt: ", userChoice);
-    console.log("computer songolt: ", computer);
+function numberToOption(number) {
+   const options = ["chuluu", "haich", "dawuu"];
+   return options[number];
+} 
+
+
+    console.log("user songolt: ", numberToOption(userChoice));
+    console.log("computer songolt: ", numberToOption(computer));
 
 //console.log("User songolt:", options[userChoiceNumber]);
 //console.log("Computer songolt:", options[computerNumber]);
