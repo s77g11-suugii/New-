@@ -95,9 +95,7 @@ function askChoice() {
     if (userChoice === computer) {
       console.log("tentsew");
     } else if (
-      (userChoice === "0" && computer === "1") ||
-      (userChoice === "1" && computer === "3") ||
-      (userChoice === "3" && computer === "0")
+      (userChoice > computer)
     ) {
       console.log("user ylaa");
     } else {
