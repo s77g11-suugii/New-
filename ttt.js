@@ -4,9 +4,6 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-//let attempt = 0;
-//const maxAttempt = 3;
-
 const userWinableValues = [1, 2, 0];
 
 const convertToString = value => {
@@ -43,14 +40,6 @@ async function game() {
     console.log("Buruu utga oruulsan baina!");
     return game(); 
   }
-
-  //if (userValue < 1 || userValue > 3) {
-      //console.log("zow bichne uu");
-      //askChoice();
-      //return;
-    //}
-
-    //attempt++;
 
   const compValue = Math.floor(Math.random() * 3 + 0);
 
