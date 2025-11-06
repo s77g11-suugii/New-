@@ -1,0 +1,16 @@
+[
+  {
+    "name": "bbff",
+    "password": "123"
+  },
+  {
+    "name": "Suugii",
+    "password": "123",
+    "balance": 20000
+  },
+  {
+    "name": "bataa",
+    "password": "123",
+    "balance": 30000
+  }
+]

@@ -53,7 +53,14 @@ let index = 0;
 
 function askQuestion() {
   if (index < questions.length) {
-    rl.question(questions[index].question, (userAnswer) => {
+    rl.question(questions[index].question, (userAnswer) => { 
+
+  //if (answer < a || answer > e) {
+  //    console.log("zow bichne uu");
+  //    askChoice();
+  //   return;
+  //  }
+
       if (userAnswer.toLowerCase() === questions[index].answer) {
         console.log("Зөв!\n");
         score++;
@@ -64,9 +71,35 @@ function askQuestion() {
       askQuestion();
     });
   } else {
-    console.log(`Тоглоом дууслаа! Таны оноо: ${score} / ${questions.length}`);
-    rl.close();
-  }
+  function myGrading(score) {
+    const percentage = (score / questions.length) * 100;
+    let gscore;
+
+    switch(true) {
+        case (percentage >= 90):
+            gscore = 'A';
+            break;
+        case (percentage >= 80):
+            gscore = 'B';
+            break;
+        case (percentage >= 70):
+            gscore = 'C';
+            break;
+        case (percentage >= 60):
+            gscore = 'D';
+            break;
+        default:
+            gscore = 'F';
+    }
+    return gscore;
 }
 
+const grade = myGrading(score);
+console.log(`Тоглоом дууслаа Таны оноо: ${score} / ${questions.length} (${grade})`);
+
+
+  }
+}
 askQuestion();
+
+
